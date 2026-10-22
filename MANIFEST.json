@@ -1,0 +1,31 @@
+{
+  "package": "php-skeptic",
+  "version": "0.1.0",
+  "sha256": {
+    "README.md": "ee0018c2f7b21c5492eaf2a9c0ff01f1c2d6d83b9448f67e5723df1603dda389",
+    "SKILL.md": "59cab3bd935d065c8f70f6739f4ba600958afb41ef751eec9dbe600d659870e1",
+    "TEST-RESULTS.txt": "088ebfab7b593a6bb51bda8a2fec48af8bd642ab011cd880841804a6ee6b1656",
+    "VALIDATION.md": "02f2beb419a5d22d8571a9cd94d5015adc760077d6152216ddc81c94af70cf15",
+    "agents/openai.yaml": "9959ff1b96ef00ec6054881a90d42b0c859d2ac91c94ab744144b459f98ae732",
+    "references/advisory-snapshot.json": "f0006205080bc34806a5931588064c54ce8de49a0f24b8e427bb28ea807b25d7",
+    "references/blindspots.md": "928ecb643f2a6e057ddb5df6ab87500c7c4a540254c3dd3c557851a21d2effc6",
+    "references/discovery.md": "60dd7a7f57e848f4af801c2690b1078fbdb0b238e43e6aa5ba7eab2b54dd00de",
+    "references/evaluation.md": "cd7310e6c981996412decbcc2d9a3249db1704787b215feaeac321662a01c983",
+    "references/evidence.md": "dcfdf8511f88f8589b99602ef460754b20d8c73757ef77035c44cbd33fb35069",
+    "references/log-triage.md": "1b777f12678861520f58ca4a99df0f1ce9b053280c7473ac8da32bd83409ff74",
+    "references/operations.md": "07f44e4b05b5cd92cc1e5232b23e7d0784cf31a7efd789dd83b231cb70c03502",
+    "references/php2shell.md": "4d2235c3dedbf80f54c7b9f94b16682080173d5a09ff0ef9eb5b6dbe7d833aba",
+    "references/project-audit.md": "9543c2f561c8a9f79ff741292702ce8b70c4aad1b3a03430d20534577b24fcf3",
+    "scripts/collect_metadata.py": "bc36d25571d91ed86db7553cfe12b9595ad8ae985cf3d93a1707a7bedfb1a1ee",
+    "scripts/common.py": "a8ef01edc7fc2b88a93d7c9e6b19b21149a0c6401e3c99551d6aefbbef4f0b53",
+    "scripts/php_version_hint.py": "d15e0901d7754a80dd178c74e0e80149a590e329bdbb38410105ad6a9be0bc40",
+    "scripts/triage_logs.py": "4599ed8808a398c1f422da08817a94bebd4d12746de00849d0b119039489ca50",
+    "templates/asset-graph.json": "10fd6c92985d2bdafb01f1ea2b29b3950fde4c00dda45135c386b3a94c30e67b",
+    "templates/coding-agent-handoff.md": "fb21ef740f71f369be45510be3761f72b4c87f89d5b03b42f92c568507dacd00",
+    "templates/engagement.json": "ad984b49fe6c98448a61c68387975e7f44296a7dc0207e1f8059a664f590d6b4",
+    "templates/finding.json": "d269f321168e56995661087bbebc52f121e6e6f9c25574e6945fe42223f0037a",
+    "templates/report.md": "7e17b34ea5e37c911033aa72fe57509ec36019155384c4e9bb8d017cd07deba0",
+    "tests/test_helpers.py": "da734e8491a5fb75a197da0a47d729533f708b0ccda91d77c94c9bd68e33999e"
+  },
+  "note": "Manifest excludes itself. Hashes identify packaged files, not external source authenticity."
+}

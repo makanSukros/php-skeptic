@@ -1,0 +1,6 @@
+interface:
+  display_name: "PHP Skeptic"
+  short_description: "Evidence-first PHP estate security assessment"
+  default_prompt: "Use $php-skeptic to assess my authorized PHP estate. Verify the target first, begin with environment and log discovery, map each project to its actual runtime, and distinguish facts, hypotheses and missing evidence. Start read-only and ask only consequential unanswered questions."
+policy:
+  allow_implicit_invocation: false

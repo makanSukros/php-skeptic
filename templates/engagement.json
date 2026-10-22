@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "engagement_id": null,
+  "created_at_utc": null,
+  "target": {
+    "identity": null,
+    "context": "unverified",
+    "confirmed_by": null
+  },
+  "authorization": {
+    "hosts": [],
+    "project_roots": [],
+    "log_sources": [],
+    "tenants": [],
+    "excluded": [],
+    "approved_by": null,
+    "approved_at": null
+  },
+  "activity": {
+    "read_only_metadata": false,
+    "read_project_source": false,
+    "read_logs": false,
+    "active_http": false,
+    "lab_reproduction": false,
+    "changes": false
+  },
+  "budgets": {
+    "max_collection_seconds": 15,
+    "max_entries": 15000,
+    "max_log_bytes_per_file": 1048576,
+    "max_log_lines_per_file": 2000,
+    "active_requests": 0,
+    "active_concurrency": 0
+  },
+  "report_directory": null,
+  "prohibited_actions": [
+    "production_oom_or_rce_probes",
+    "real_broadcasts",
+    "real_payments",
+    "secret_uploads",
+    "unauthorized_tenant_access"
+  ],
+  "answered_questions": [],
+  "unknowns": [],
+  "evidence_ids": [],
+  "stop_conditions": [
+    "incident_indicators",
+    "service_instability",
+    "scope_boundary",
+    "resource_budget_exhausted"
+  ]
+}

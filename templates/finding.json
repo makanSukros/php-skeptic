@@ -1,0 +1,27 @@
+{
+  "finding_id": null,
+  "title": null,
+  "affected_assets": [],
+  "severity": null,
+  "severity_rationale": null,
+  "confidence": "unverified",
+  "confidence_rationale": null,
+  "observation": null,
+  "inference": null,
+  "hypothesis": null,
+  "preconditions": [],
+  "evidence_ids": [],
+  "counter_evidence": [],
+  "falsifier": null,
+  "unknowns": [],
+  "validation": {
+    "performed": false,
+    "environment": null,
+    "method": null,
+    "result": null
+  },
+  "remediation": [],
+  "approval_needed": [],
+  "retest_criteria": [],
+  "coverage_limits": []
+}
