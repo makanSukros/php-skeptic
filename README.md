@@ -8,6 +8,303 @@ It starts with **environment + log discovery** before deeper testing, supports s
 
 The initial research focus includes **CVE-2026-109618** and **CVE-2026-109619**, but the workflow is intentionally broader than a two-CVE scanner.
 
+## Installation
+
+PHP Skeptic follows the portable **Agent Skills** `SKILL.md` format, so the same repository can be installed into multiple coding agents.
+
+### Choose your agent
+
+| Agent | Recommended global install | Invocation / verification |
+|---|---|---|
+| **Claude Code** | `~/.claude/skills/php-skeptic` | Run `claude`, then use `/php-skeptic` or ask Claude to use the skill |
+| **OpenAI Codex** | `${CODEX_HOME:-$HOME/.codex}/skills/php-skeptic` | Run `codex`, then ask it to use `$php-skeptic` |
+| **Command Code** | `cmd skills add makanSukros/php-skeptic --global` | `cmd skills list`, then `/php-skeptic` |
+| **Cursor** | `~/.cursor/skills/php-skeptic` or `~/.agents/skills/php-skeptic` | Cursor discovers the skill automatically |
+| **Gemini CLI** | project `.agents/skills/php-skeptic` | Run `/skills` inside Gemini CLI |
+| **OpenCode** | `~/.config/opencode/skills/php-skeptic` or `~/.agents/skills/php-skeptic` | OpenCode discovers it automatically |
+| **GitHub Copilot** | project `.github/skills/php-skeptic` or `.agents/skills/php-skeptic` | Copilot loads it when relevant |
+
+> **Global vs project install:** install globally when you want PHP Skeptic available for many repositories/servers. Install inside a project when the skill should travel with that repository and be shared with the team.
+
+---
+
+### Claude Code
+
+Claude Code discovers personal skills from `~/.claude/skills/` and project skills from `.claude/skills/`.
+
+#### Install globally
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/makanSukros/php-skeptic.git ~/.claude/skills/php-skeptic
+```
+
+Verify:
+
+```bash
+test -f ~/.claude/skills/php-skeptic/SKILL.md && echo "PHP Skeptic installed"
+```
+
+Start Claude Code:
+
+```bash
+claude
+```
+
+Then invoke it explicitly:
+
+```text
+/php-skeptic
+```
+
+Or just ask naturally:
+
+```text
+Use php-skeptic to audit this authorized PHP server.
+Start with environment and log discovery, map every project to the actual
+serving PHP runtime, and do not treat missing evidence as safe.
+```
+
+#### Install only for one project
+
+Run this from your project root:
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/makanSukros/php-skeptic.git .claude/skills/php-skeptic
+```
+
+#### Update
+
+```bash
+git -C ~/.claude/skills/php-skeptic pull --ff-only
+```
+
+---
+
+### OpenAI Codex
+
+Codex skills are normally stored under `${CODEX_HOME:-$HOME/.codex}/skills/`.
+
+#### Install globally
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/makanSukros/php-skeptic.git \
+  "${CODEX_HOME:-$HOME/.codex}/skills/php-skeptic"
+```
+
+Verify:
+
+```bash
+test -f "${CODEX_HOME:-$HOME/.codex}/skills/php-skeptic/SKILL.md" \
+  && echo "PHP Skeptic installed"
+```
+
+Start Codex:
+
+```bash
+codex
+```
+
+Then prompt:
+
+```text
+Use $php-skeptic to audit this authorized PHP environment.
+Begin read-only with environment + log discovery before deeper testing.
+```
+
+#### Update
+
+```bash
+git -C "${CODEX_HOME:-$HOME/.codex}/skills/php-skeptic" pull --ff-only
+```
+
+---
+
+### Command Code
+
+Command Code has native GitHub skill installation, so this is the shortest setup.
+
+#### Install globally
+
+```bash
+cmd skills add makanSukros/php-skeptic --global
+```
+
+Install only for the current project:
+
+```bash
+cmd skills add makanSukros/php-skeptic
+```
+
+Verify:
+
+```bash
+cmd skills list
+```
+
+Start Command Code:
+
+```bash
+cmd
+```
+
+Invoke:
+
+```text
+/php-skeptic
+```
+
+Command Code can also select the skill automatically when your prompt clearly matches it.
+
+---
+
+### Cursor
+
+Cursor supports both its own skill directory and the portable `.agents/skills/` directory.
+
+#### Global install
+
+```bash
+mkdir -p ~/.cursor/skills
+git clone https://github.com/makanSukros/php-skeptic.git ~/.cursor/skills/php-skeptic
+```
+
+#### Project install
+
+```bash
+mkdir -p .cursor/skills
+git clone https://github.com/makanSukros/php-skeptic.git .cursor/skills/php-skeptic
+```
+
+Or use the portable project path:
+
+```bash
+mkdir -p .agents/skills
+git clone https://github.com/makanSukros/php-skeptic.git .agents/skills/php-skeptic
+```
+
+Then open Cursor Agent and ask:
+
+```text
+Use the php-skeptic skill to audit this authorized PHP environment.
+```
+
+---
+
+### Gemini CLI
+
+Gemini CLI discovers project Agent Skills from `.agents/skills/`.
+
+From the target project root:
+
+```bash
+mkdir -p .agents/skills
+git clone https://github.com/makanSukros/php-skeptic.git .agents/skills/php-skeptic
+```
+
+Start Gemini CLI:
+
+```bash
+gemini
+```
+
+Check discovery:
+
+```text
+/skills
+```
+
+Then ask:
+
+```text
+Use php-skeptic to assess this authorized PHP server.
+```
+
+---
+
+### OpenCode
+
+#### Global install
+
+```bash
+mkdir -p ~/.config/opencode/skills
+git clone https://github.com/makanSukros/php-skeptic.git \
+  ~/.config/opencode/skills/php-skeptic
+```
+
+#### Project install
+
+```bash
+mkdir -p .opencode/skills
+git clone https://github.com/makanSukros/php-skeptic.git .opencode/skills/php-skeptic
+```
+
+OpenCode also supports the portable `.agents/skills/php-skeptic` location.
+
+---
+
+### GitHub Copilot
+
+For a repository-scoped installation:
+
+```bash
+mkdir -p .github/skills
+git clone https://github.com/makanSukros/php-skeptic.git .github/skills/php-skeptic
+```
+
+Portable alternative:
+
+```bash
+mkdir -p .agents/skills
+git clone https://github.com/makanSukros/php-skeptic.git .agents/skills/php-skeptic
+```
+
+This can be used by supported Copilot agent surfaces for that repository.
+
+---
+
+### Portable `.agents/skills` install
+
+If your agent supports the open `.agents/skills` convention, this is the easiest **project-level** cross-agent setup:
+
+```bash
+mkdir -p .agents/skills
+git clone https://github.com/makanSukros/php-skeptic.git .agents/skills/php-skeptic
+```
+
+This path is currently recognized by tools including **Command Code, Cursor, Gemini CLI, OpenCode and GitHub Copilot**.
+
+If you primarily use **Claude Code** or **Codex**, prefer their native directories shown above for the least ambiguity.
+
+---
+
+### Updating a Git-cloned installation
+
+For installations made with `git clone`:
+
+```bash
+git -C /path/to/php-skeptic pull --ff-only
+```
+
+Examples:
+
+```bash
+git -C ~/.claude/skills/php-skeptic pull --ff-only
+git -C "${CODEX_HOME:-$HOME/.codex}/skills/php-skeptic" pull --ff-only
+git -C ~/.cursor/skills/php-skeptic pull --ff-only
+git -C ~/.config/opencode/skills/php-skeptic pull --ff-only
+```
+
+For Command Code-managed installs, use its skill management commands instead of manually editing the installed copy.
+
+### Before using it on a server
+
+Installing the skill does **not** grant access to a server. Start your coding agent in the authorized server/project context (for example an SSH workspace, remote development session, or explicitly provided shell) and make sure the agent can actually access the intended target.
+
+PHP Skeptic is designed to **verify the target first** so it does not accidentally treat your laptop, agent sandbox, bastion, or unrelated container as the production server.
+
 ## Why this exists
 
 Security agents often fail in predictable ways:
